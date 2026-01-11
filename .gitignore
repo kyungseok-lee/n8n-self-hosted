@@ -1,0 +1,6 @@
+.vscode/
+.idea/
+data/
+data.tar.gz
+.DS_Store
+.env
