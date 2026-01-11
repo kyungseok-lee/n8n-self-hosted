@@ -2,5 +2,6 @@
 .idea/
 data/
 data.tar.gz
+backups/
 .DS_Store
 .env

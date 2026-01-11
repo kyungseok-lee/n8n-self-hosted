@@ -67,7 +67,47 @@ docker compose down -v
 rm -rf ./data
 ```
 
+## 데이터 백업 및 복원
+
+Makefile을 사용하여 데이터를 백업하고 복원할 수 있습니다.
+
+### 백업 생성
+
+```bash
+make backup
+```
+
+백업 파일은 `./backups` 디렉토리에 타임스탬프가 포함된 이름으로 저장됩니다.
+
+### 백업 목록 보기
+
+```bash
+make list-backups
+```
+
+### 백업 복원
+
+```bash
+make restore BACKUP_FILE=./backups/n8n-backup-20240101_120000.tar.gz
+```
+
+복원 전에 기존 데이터는 자동으로 백업됩니다.
+
+### 오래된 백업 정리
+
+30일 이상 된 백업 파일을 삭제합니다:
+
+```bash
+make clean-backups
+```
+
+### 도움말
+
+```bash
+make help
+```
+
 ## 주의사항
 
 - `.env` 파일에 민감한 정보가 포함되어 있으므로 Git에 커밋하지 마세요.
-- `./data` 디렉토리는 `.gitignore`에 포함되어 있습니다.
+- `./data` 및 `./backups` 디렉토리는 `.gitignore`에 포함되어 있습니다.
